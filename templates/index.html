@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disease Prediction System</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 32px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #000;
+            color: orange;
+        }
+
+        input[type="text"]::placeholder {
+            color: #aaa;
+        }
+
+        .btn {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: darkred;
+        }
+
+        .result {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Disease Prediction System</h1>
+        <form method="POST">
+            <input type="text" name="symptom1" placeholder="Enter symptom 1">
+            <input type="text" name="symptom2" placeholder="Enter symptom 2">
+            <input type="text" name="symptom3" placeholder="Enter symptom 3">
+            <input type="text" name="symptom4" placeholder="Enter symptom 4">
+            <input type="text" name="symptom5" placeholder="Enter symptom 5">
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            You might be suffering from: {{ prediction }}
+        </div>
+        {% endif %}
+
+        <div class="note">
+            Note: Use at least 3 symptoms for better results
+        </div>
+    </div>
+
+</body>
+</html>
